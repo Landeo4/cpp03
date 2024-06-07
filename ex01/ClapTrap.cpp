@@ -2,10 +2,10 @@
 
 ClapTrap:: ClapTrap(std::string Name): _Name(Name)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap's Constructor called" << std::endl;
 	_HitPoint = 10;
 	_EnergyPoint = 10;
-	_AttackDammage = 0;
+	_AttackDamage = 0;
 	return ;	
 }
 
@@ -25,7 +25,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &a)
 
 ClapTrap:: ~ClapTrap(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap's Destructor called" << std::endl;
 	return ;
 }
 
@@ -37,7 +37,7 @@ void ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_Name << " attack " << target;
-	std::cout << ", causing " << this->_AttackDammage << " points of damage!" << std::endl;
+	std::cout << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
 	this->_EnergyPoint--;
 }
 

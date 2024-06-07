@@ -2,7 +2,6 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
-#include <string>
 
 class ClapTrap{
 	public:
@@ -15,10 +14,11 @@ class ClapTrap{
 	int getEnergyPoint(void);
 	~ClapTrap();
 	private:
+	protected:
 	std::string _Name;
 	int _HitPoint;
 	int _EnergyPoint;
-	int _AttackDammage;
+	int _AttackDamage;
 };
 
 #endif
