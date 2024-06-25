@@ -1,4 +1,4 @@
-NAME	=	Repetitive_work
+NAME	=	Serena
 
 SRCS	=	main.cpp \
 			ClapTrap.cpp \

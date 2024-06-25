@@ -1,8 +1,18 @@
 #include "ClapTrap.hpp"
 
-ClapTrap:: ClapTrap(std::string Name): _Name(Name)
+ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap's Constructor called" << std::endl;
+	_HitPoint = 100;
+	_EnergyPoint = 10;
+	_AttackDamage = 0;
+	_Name = "Nameless";
+	return ;
+}
+
+ClapTrap:: ClapTrap(std::string Name): _Name(Name)
+{
+	std::cout << "Constructor called" << std::endl;
 	_HitPoint = 10;
 	_EnergyPoint = 10;
 	_AttackDamage = 0;
@@ -25,12 +35,17 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &a)
 
 ClapTrap:: ~ClapTrap(void)
 {
-	std::cout << "ClapTrap's Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
+	if (this->_HitPoint <= 0)
+	{
+		std::cout << "ScavTrap don't have enought hit point" << std::endl;
+		return ;
+	}
 	if (this->_EnergyPoint == 0)
 	{
 		std::cout << "ClapTrap don't have enought energy point" << std::endl;
@@ -48,15 +63,14 @@ int ClapTrap::getEnergyPoint(void)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_EnergyPoint == 0)
+	if (this->_HitPoint <= 0)
 	{
-		std::cout << "ClapTrap don't have enought energy point" << std::endl;
+		std::cout << "ScavTrap don't have enought hit point" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_Name << " take damage";
 	std::cout << ", taking " << amount << " points of damage!" << std::endl;
 	this->_HitPoint = this->_HitPoint - amount;
-	this->_EnergyPoint--;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
